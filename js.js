@@ -1,5 +1,5 @@
 /* Set Public ID for merchant */
-var public_id = 'cb';
+var public_id = '';
 
 if (public_id.length == 0) {
 	alert('Set Public ID in js.js');
