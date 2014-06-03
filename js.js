@@ -225,6 +225,8 @@ jQuery(document).ready(function() {
 				ifModified: true,
 				beforeSend: function (xhr) {
 					jQuery('input[type="submit"]').attr('disabled', 'disabled').addClass('disabled');
+					
+					document.activeElement.blur();
 				},
 				success: function (data) {
 					jQuery('input[type="submit"]').attr('disabled', false).removeClass('disabled');
