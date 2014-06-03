@@ -5,9 +5,6 @@ if (public_id.length == 0) {
 	alert('Set Public ID in js.js');
 }
 
-
-
-
 var baseFrequency, beepLength, chars, characters, context, freq, freqCodes, frequencies, i, semitone, _i, _len;
 semitone = 1.05946311;
 baseFrequency = 1760;
@@ -213,7 +210,6 @@ jQuery(document).ready(function() {
 
 	jQuery('form').submit(function() {
 		if (parseFloat(jQuery('input#ordertotal').val()) > 0.00060000) {
-
 			reset();
 
 			jQuery('input#ordertotal').removeClass('invalid');
@@ -231,10 +227,9 @@ jQuery(document).ready(function() {
 					jQuery('input[type="submit"]').attr('disabled', 'disabled').addClass('disabled');
 				},
 				success: function (data) {
+					jQuery('input[type="submit"]').attr('disabled', false).removeClass('disabled');
+
 					if (!jQuery.isEmptyObject(data)) {
-
-						jQuery('input[type="submit"]').attr('disabled', false).removeClass('disabled');
-
 						invoice_id = data.id;
 						bitcoin_amount = data.amount;
 						bitcoin_address = data.address;
@@ -346,7 +341,7 @@ jQuery(document).ready(function() {
 
 		jQuery('.countdown').hide();
 
-		jQuery('#amount').html('<span style="color: #59AE59;">Betalas i sin helhet</span>');
+		jQuery('#amount').html('<span style="color: #59AE59;">Paid in full</span>');
 
 		jQuery('#qr').qrcode({
 			render: 'canvas',
@@ -354,7 +349,7 @@ jQuery(document).ready(function() {
 			text: 'https://bips.me/invoice/' + public_id + '/' + invoice_id,
 			ecLevel: 'M',
 			mode: 2,
-			label: 'Kvitto',
+			label: 'Receipt',
 			mSize: 0.09,
 			fontcolor: '#59AE59',
 			fill: '#59AE59',
@@ -370,7 +365,7 @@ jQuery(document).ready(function() {
 				text: 'https://bips.me/invoice/' + public_id + '/' + invoice_id,
 				ecLevel: 'M',
 				mode: 2,
-				label: 'Kvitto',
+				label: 'Receipt',
 				mSize: 0.09,
 				fontcolor: '#59AE59',
 				fill: '#59AE59',
@@ -387,7 +382,7 @@ jQuery(document).ready(function() {
 				text: 'https://bips.me/invoice/' + public_id + '/' + invoice_id,
 				ecLevel: 'M',
 				mode: 2,
-				label: 'Kvitto',
+				label: 'Receipt',
 				mSize: 0.09,
 				fontcolor: '#59AE59',
 				fill: '#59AE59',
